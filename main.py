@@ -1,0 +1,1 @@
+print("This is COMP4710 Group 14's work, Analyzer.\n")
