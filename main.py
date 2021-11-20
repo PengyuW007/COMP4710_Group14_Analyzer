@@ -1,1 +1,1 @@
-print("This is COMP4710 Group 14's work, Analyzer.\n");
+print("This is COMP4710 Group 14's work, Analyzer.\n")
