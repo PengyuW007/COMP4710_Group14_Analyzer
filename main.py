@@ -11,6 +11,6 @@ data = xlrd.open_workbook(file_loc)  # all the data inside excel file
 # sheet
 sheet = data.sheet_by_index(0)  # read sheet one
 numRows = sheet.nrows - 1
-# print("number of rows: ", numRows, '\n')
+print("number of rows: ", numRows, '\n')
 
-print("COMP 4710 Group 14 Analyzer.\n")
+# print("COMP 4710 Group 14 Analyzer.\n")
