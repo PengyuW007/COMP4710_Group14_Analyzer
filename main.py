@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import xlrd  # you should install xlrd package, pip install xlrd
+import xlrd  # you should install xlrd package, resolvent: pip install xlrd
 
 '''
 Read
