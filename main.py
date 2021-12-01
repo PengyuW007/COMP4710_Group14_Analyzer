@@ -15,25 +15,35 @@ Read
 # print("number of rows: ", numRows, '\n')
 
 '''yue ma tests, '''
-testFile = pd.read_excel("data.xlsx")  # COVID19-eng.csv, official path repository
+testFile = pd.read_csv("COVID19-eng.csv")  # COVID19-eng.csv, official path repository
 
-def testRemove(count, target):
+def testRemove(count):
     if count != 0:
         print("The input value is not zero, please return and check!")
     else:
         for i in testFile["COV_GDR"]:
-            target += 1
             if i == 9:
                 count += 1
 
-    return target
+    return count
 
 
 # print("COMP 4710 Group 14 Analyzer.\n")
 
 if __name__ == '__main__':
     print(testFile)
-    k = testRemove(0, 0)
+    k = testRemove(0)
     print("The line will be removed is line ", k)
     print()
-    print(testFile.drop(testFile.index[k - 1]))
+    testFile = testFile[~testFile["COV_EY"].isin([99])]
+    testFile = testFile[~testFile["COV_GDR"].isin([9])]
+    testFile = testFile[~testFile["COV_AGR"].isin([99])]
+    testFile = testFile[~testFile["COV_OCC"].isin([9])]
+    testFile = testFile[~testFile["COV_ASM"].isin([9])]
+    testFile = testFile[~testFile["COV_OY"].isin([99])]
+    testFile = testFile[~testFile["COV_HSP"].isin([9])]
+    testFile = testFile[~testFile["COV_RSV"].isin([9])]
+    testFile = testFile[~testFile["COV_RY"].isin([99])]
+    testFile = testFile[~testFile["COV_DTH"].isin([9])]
+    testFile = testFile[~testFile["COV_TRM"].isin([9])]
+    print(testFile)
