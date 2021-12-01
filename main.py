@@ -71,7 +71,7 @@ def countRemoveByASM(count):
 
 def countRemovedTotal():
     print("---------------------------------------------------------------")
-    print("Summary of filtering imcomplete data as following: ")
+    print("Summary of filtering incomplete data as following: ")
     c1 = countRemoveByGDR(0)
     c2 = countRemoveByAGR(0)
     c3 = countRemoveByHSP(0)
