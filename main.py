@@ -124,3 +124,24 @@ if __name__ == '__main__':
     data11.to_csv('checkData1.csv')
     data22.to_csv('checkData2.csv')
 
+
+dataset=pd.read_csv("final.csv")
+numCase = dataset['NUM_CASE']
+numASM = dataset['NUM_ASM']
+numDTH = dataset['NUM_DTH']
+perASM=numASM/numCase
+perDTH=numDTH/numCase
+dataset['PER_ASM'] = perASM
+dataset['PER_DTH'] = perDTH
+
+
+dataset=pd.read_csv("final.csv")
+numCase = dataset['NUM_CASE']
+numASM = dataset['NUM_ASM']
+numDTH = dataset['NUM_DTH']
+perASM=numASM/numCase
+perDTH=numDTH/numCase
+dataset['PER_ASM'] = perASM
+dataset['PER_DTH'] = perDTH
+dataset1 = dataset.drop(columns=['Unnamed: 0'])
+dataset1.to_csv('probability.csv')
