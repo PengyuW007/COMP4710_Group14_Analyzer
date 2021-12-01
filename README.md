@@ -6,7 +6,7 @@
 1. Pengyu Wang, 7863401
 2. Thomas Czubryt, 
 3. Hantong Li(Lucas),
-4. Yue Ma(Martin), 
+4. Yue Ma(Martin), 7824580
 5. Zhiyi Chen(Kevin)
 
 ###    Purpose
