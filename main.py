@@ -17,7 +17,6 @@ Read
 '''yue ma tests, '''
 testFile = pd.read_excel("data.xlsx")
 
-
 def testRemove(count, target):
     if count != 0:
         print("The input value is not zero, please return and check!")
@@ -28,7 +27,6 @@ def testRemove(count, target):
                 count += 1
 
     return target
-
 
 # print("COMP 4710 Group 14 Analyzer.\n")
 
