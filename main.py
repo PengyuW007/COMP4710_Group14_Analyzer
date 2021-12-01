@@ -36,4 +36,3 @@ if __name__ == '__main__':
     print("The line will be removed is line ", k)
     print()
     print(testFile.drop(testFile.index[k - 1]))
-111
