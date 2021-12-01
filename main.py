@@ -15,7 +15,7 @@ Read
 # print("number of rows: ", numRows, '\n')
 
 '''yue ma tests, '''
-testFile = pd.read_excel("data.xlsx")
+testFile = pd.read_excel("data.xlsx")  # COVID19-eng.csv, official path repository
 
 def testRemove(count, target):
     if count != 0:
@@ -27,6 +27,7 @@ def testRemove(count, target):
                 count += 1
 
     return target
+
 
 # print("COMP 4710 Group 14 Analyzer.\n")
 
