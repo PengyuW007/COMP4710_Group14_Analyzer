@@ -18,17 +18,24 @@ Read
 testFile = pd.read_excel("data.xlsx")
 
 
-def testRemove(count):
+def testRemove(count, target):
     if count != 0:
         print("The input value is not zero, please return and check!")
     else:
         for i in testFile["COV_GDR"]:
+            target += 1
             if i == 9:
                 count += 1
-    return count
+
+    return target
 
 
 # print("COMP 4710 Group 14 Analyzer.\n")
 
 if __name__ == '__main__':
-    print(testRemove(0))
+    print(testFile)
+    k = testRemove(0,0)
+    print("The line will be removed is line ", k)
+    print()
+    print(testFile.drop(testFile.index[k-1]))
+
