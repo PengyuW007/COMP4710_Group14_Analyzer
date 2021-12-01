@@ -1,21 +1,8 @@
 import pandas as pd
-import numpy as np
-import xlrd  # you should install xlrd package, resolvent: pip install xlrd/ pip install openpyxl
-
-'''
-Read
-'''
-# path
-# file_loc = "data.xlsx"  # copy the root of repository's path, if you have error" Excel xlsx file;
-# not supported solution, resolvent: pip install xlrd==1.2.0"
-# data = xlrd.open_workbook(file_loc)  # all the data inside excel file
-# sheet
-# sheet = data.sheet_by_index(0)  # read sheet one
-# numRows = sheet.nrows
-# print("number of rows: ", numRows, '\n')
 
 '''yue ma tests, '''
 testFile = pd.read_csv("COVID19-eng.csv")  # COVID19-eng.csv, official path repository
+
 
 
 def countRemoveByGDR(count):
@@ -25,7 +12,6 @@ def countRemoveByGDR(count):
         for i in testFile["COV_GDR"]:
             if i == 9:
                 count += 1
-
     return count
 
 
@@ -72,6 +58,16 @@ def countRemoveByTRM(count):
 
     return count
 
+def countRemoveByASM(count):
+    if count != 0:
+        print("The input value is not zero, please return and check!")
+    else:
+        for i in testFile["COV_ASM"]:
+            if i == 9:
+                count += 1
+
+    return count
+
 
 def countRemovedTotal():
     print("---------------------------------------------------------------")
@@ -81,11 +77,13 @@ def countRemovedTotal():
     c3 = countRemoveByHSP(0)
     c4 = countRemoveByDTH(0)
     c5 = countRemoveByTRM(0)
+    c6 = countRemoveByASM(0)
     print("The # of lines  removed by COV_GDR ", c1)
     print("The # of lines  removed by COV_AGR ", c2)
     print("The # of lines  removed by COV_HSP ", c3)
     print("The # of lines  removed by COV_DTH ", c4)
     print("The # of lines  removed by COV_TRM ", c5)
+    print("The # of lines  removed by COV_ASM ", c6)
     print("---------------------------------------------------------------")
     print()
 
@@ -96,15 +94,33 @@ if __name__ == '__main__':
     print(testFile)
     countRemovedTotal()
     print()
+
     #testFile = testFile[~testFile["COV_EY"].isin([99])]
     testFile = testFile[~testFile["COV_GDR"].isin([9])]
     testFile = testFile[~testFile["COV_AGR"].isin([99])]
-    #testFile = testFile[~testFile["COV_OCC"].isin([9])]
-    #testFile = testFile[~testFile["COV_ASM"].isin([9])]
-    #testFile = testFile[~testFile["COV_OY"].isin([99])]
-    testFile = testFile[~testFile["COV_HSP"].isin([9])]
-    #testFile = testFile[~testFile["COV_RSV"].isin([9])]
-    #testFile = testFile[~testFile["COV_RY"].isin([99])]
+    testFile = testFile[~testFile["COV_ASM"].isin([9])]
     testFile = testFile[~testFile["COV_DTH"].isin([9])]
-    testFile = testFile[~testFile["COV_TRM"].isin([9])]
+
     print(testFile)
+
+
+
+#total number of case
+    data = testFile.sort_values(['COV_GDR', 'COV_AGR', 'COV_REG'], ascending=False).groupby(['COV_GDR', 'COV_AGR', 'COV_REG']).size().reset_index(name='NUM_CASE')
+
+#tootal number of case that have symptoms
+    data1 = testFile.query('COV_ASM == 2')
+    data11 = data1.sort_values(['COV_GDR', 'COV_AGR', 'COV_REG'], ascending=False).groupby(['COV_GDR', 'COV_AGR', 'COV_REG', 'COV_ASM']).size().reset_index(name='NUM_ASM')
+
+#total number of case that died
+    data2 = testFile.query('COV_DTH == 2')
+    data22 = data2.sort_values(['COV_GDR', 'COV_AGR', 'COV_REG'], ascending=False).groupby(['COV_GDR', 'COV_AGR', 'COV_REG', 'COV_DTH']).size().reset_index(name='NUM_DTH')
+
+    result = pd.merge(data,data11, on=['COV_GDR', 'COV_AGR', 'COV_REG'], how='outer')
+    final_result= pd.merge(result,data22, on=['COV_GDR', 'COV_AGR', 'COV_REG'], how='outer')
+    final_result.to_csv('final.csv')
+
+    data.to_csv('checkData.csv')
+    data11.to_csv('checkData1.csv')
+    data22.to_csv('checkData2.csv')
+
