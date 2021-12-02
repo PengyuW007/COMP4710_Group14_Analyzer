@@ -7,7 +7,7 @@
 2. Thomas Czubryt, 
 3. Hantong Li(Lucas),
 4. Yue Ma(Martin), 7824580
-5. Zhiyi Chen(Kevin)
+5. Zhiyi Chen(Kevin)， 7863368
 
 ###    Purpose
 We are going to use our algorithm and findings in our paper to contribute to the public and make the data to be visualisation to people.
