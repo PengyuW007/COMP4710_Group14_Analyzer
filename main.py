@@ -4,96 +4,11 @@ import pandas as pd
 testFile = pd.read_csv("COVID19-eng.csv")  # COVID19-eng.csv, official path repository
 
 
-def countRemoveByGDR(count):
-    if count != 0:
-        print("The input value is not zero, please return and check!")
-    else:
-        for i in testFile["COV_GDR"]:
-            if i == 9:
-                count += 1
-    return count
-
-
-def countRemoveByAGR(count):
-    if count != 0:
-        print("The input value is not zero, please return and check!")
-    else:
-        for i in testFile["COV_AGR"]:
-            if i == 99:
-                count += 1
-
-    return count
-
-
-def countRemoveByHSP(count):
-    if count != 0:
-        print("The input value is not zero, please return and check!")
-    else:
-        for i in testFile["COV_HSP"]:
-            if i == 9:
-                count += 1
-
-    return count
-
-
-def countRemoveByDTH(count):
-    if count != 0:
-        print("The input value is not zero, please return and check!")
-    else:
-        for i in testFile["COV_DTH"]:
-            if i == 9:
-                count += 1
-
-    return count
-
-
-def countRemoveByTRM(count):
-    if count != 0:
-        print("The input value is not zero, please return and check!")
-    else:
-        for i in testFile["COV_TRM"]:
-            if i == 9:
-                count += 1
-
-    return count
-
-
-def countRemoveByASM(count):
-    if count != 0:
-        print("The input value is not zero, please return and check!")
-    else:
-        for i in testFile["COV_ASM"]:
-            if i == 9:
-                count += 1
-
-    return count
-
-
-def countRemovedTotal():
-    print("---------------------------------------------------------------")
-    print("Summary of filtering incomplete data as following: ")
-    c1 = countRemoveByGDR(0)
-    c2 = countRemoveByAGR(0)
-    c3 = countRemoveByHSP(0)
-    c4 = countRemoveByDTH(0)
-    c5 = countRemoveByTRM(0)
-    c6 = countRemoveByASM(0)
-    print("The # of lines  removed by COV_GDR ", c1)
-    print("The # of lines  removed by COV_AGR ", c2)
-    print("The # of lines  removed by COV_HSP ", c3)
-    print("The # of lines  removed by COV_DTH ", c4)
-    print("The # of lines  removed by COV_TRM ", c5)
-    print("The # of lines  removed by COV_ASM ", c6)
-    print("---------------------------------------------------------------")
-    print()
 
 
 # print("COMP 4710 Group 14 Analyzer.\n")
 
 if __name__ == '__main__':
-    print(testFile)
-    countRemovedTotal()
-    print()
 
     # testFile = testFile[~testFile["COV_EY"].isin([99])]
     testFile = testFile[~testFile["COV_GDR"].isin([9])]
