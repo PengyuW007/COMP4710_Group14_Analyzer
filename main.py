@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt  # install matplotlib.pyplot
+
 '''yue ma tests, '''
 testFile = pd.read_csv("COVID19-eng.csv")  # COVID19-eng.csv, official path repository
 
@@ -89,7 +90,6 @@ def countRemovedTotal():
     print()
 
 
-
 def displayPlot(regionNum, title):
     testFile = pd.read_csv("probability.csv")
     plt.style.use("ggplot")
@@ -102,15 +102,12 @@ def displayPlot(regionNum, title):
         male.insert(count, i)
         count += 1
 
-
-
     count = 0
     data = np.where((testFile['COV_GDR'] == 2) & (testFile['COV_REG'] == regionNum))
     print(testFile.loc[data])
     for i in testFile.loc[data]['PER_DTH']:
         female.insert(count, i)
         count += 1
-
 
     xticks = np.arange(len(AgeGroup))
 
@@ -126,6 +123,7 @@ def displayPlot(regionNum, title):
     ax.set_xticklabels(AgeGroup)
     ax.grid(False)
     plt.show()
+
 
 # print("COMP 4710 Group 14 Analyzer.\n")
 
