@@ -113,7 +113,7 @@ if __name__ == '__main__':
         ['COV_GDR', 'COV_AGR', 'COV_REG', 'COV_ASM']).size().reset_index(name='NUM_ASM')
 
     # total number of case that died
-    data2 = testFile.query('COV_DTH == 2')
+    data2 = testFile.query('COV_DTH == 1')
     data22 = data2.sort_values(['COV_GDR', 'COV_AGR', 'COV_REG'], ascending=False).groupby(
         ['COV_GDR', 'COV_AGR', 'COV_REG', 'COV_DTH']).size().reset_index(name='NUM_DTH')
 
