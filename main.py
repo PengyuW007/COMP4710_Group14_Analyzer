@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import math
 import matplotlib.pyplot as plt  # install matplotlib.pyplot
 
 '''yue ma tests, '''
@@ -125,6 +126,72 @@ def displayPlot(regionNum, title):
     plt.show()
 
 
+
+def uViperofRegion(region,dataProb):
+    regionName = "COV_REG == "+ region
+    qData= dataProb.query(regionName)
+
+    a = []
+    count=0
+    for i in qData['PER_ASM']:
+        if math.isnan(i):
+            a.insert(count, 0)
+            count += 1
+        else:
+            a.insert(count,i)
+            count +=1
+
+
+    count=0
+    b = []
+    for i in qData['PER_DTH']:
+        if math.isnan(i):
+            b.insert(count,0)
+            count +=1
+        else:
+            b.insert(count,1-i)
+            count +=1
+
+
+    count=0
+    c = []
+    for i in qData['PER_HSP']:
+        if math.isnan(i):
+            c.insert(count,0)
+            count +=1
+        else:
+            c.insert(count,i)
+            count +=1
+
+
+    ab = []
+    size=len(a)
+    for i in range(size):
+            ab.insert(i, a[i]*b[i])
+
+
+    ac = []
+    for i in range(size):
+
+            ac.insert(i, a[i]*c[i])
+
+
+    bc = []
+    for i in range(size):
+            bc.insert(i, b[i]*c[i])
+
+
+
+    abc = []
+    for i in range(size):
+            abc.insert(i, a[i]*b[i]*c[i])
+
+
+
+    testData = {'COV_REG': region, 'a': a, 'b': b, 'c': c, 'ab': ab, 'ac': ac, 'bc': bc, 'abc': abc}
+    write = pd.DataFrame(testData)
+    return write
+
 # print("COMP 4710 Group 14 Analyzer.\n")
 
 if __name__ == '__main__':
@@ -186,3 +253,13 @@ if __name__ == '__main__':
     displayPlot(3, "Asymptomatic Distribution of Ontario and Nunavut")
     displayPlot(4, "Asymptomatic Distribution of Prairies and the NorthWest Territories")
     displayPlot(5, "Asymptomatic Distribution of British Columbia and Yukon")
+
+    w1 = uViperofRegion('1', dataset1)
+    w2 = uViperofRegion('2', dataset1)
+    w3 = uViperofRegion('3', dataset1)
+    w4 = uViperofRegion('4', dataset1)
+    w5 = uViperofRegion('5', dataset1)
+
+
+    final = pd.concat([w1, w2, w3, w4, w5], ignore_index=True)
+    final.to_csv('collectionForUVIPER.csv', index=False, header=True)
