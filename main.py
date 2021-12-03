@@ -193,6 +193,7 @@ Lucas viper
 # U-VIPER for region 1-5
 def UViperofRegion(region, MinSupp):
     regionName = "COV_REG == " + region
+    data = pd.read_csv('probability.csv')
     qData = data.query(regionName)
 
     # probability of people who have symptom
@@ -343,11 +344,11 @@ if __name__ == '__main__':
     dataset1 = dataset.drop(columns=['Unnamed: 0'])
     dataset1.to_csv('probability.csv')
 
-    displayPlot(1, "Asymptomatic Distribution of Atlantic")
-    displayPlot(2, "Asymptomatic Distribution of Quebec")
-    displayPlot(3, "Asymptomatic Distribution of Ontario and Nunavut")
-    displayPlot(4, "Asymptomatic Distribution of Prairies and the NorthWest Territories")
-    displayPlot(5, "Asymptomatic Distribution of British Columbia and Yukon")
+    displayPlot(1, "symptomatic Distribution of Atlantic")
+    displayPlot(2, "symptomatic Distribution of Quebec")
+    displayPlot(3, "symptomatic Distribution of Ontario and Nunavut")
+    displayPlot(4, "symptomatic Distribution of Prairies and the NorthWest Territories")
+    displayPlot(5, "symptomatic Distribution of British Columbia and Yukon")
 
     w1 = uViperofRegion('1', dataset1)
     w2 = uViperofRegion('2', dataset1)
@@ -359,11 +360,9 @@ if __name__ == '__main__':
     final.to_csv('collectionForUVIPER.csv', index=False, header=True)
 
     # Lucas Viper
-    r1 = UViperofRegion('1', 0.025)
-    r2 = UViperofRegion('2', 0.025)
-    r3 = UViperofRegion('3', 0.025)
-    r4 = UViperofRegion('4', 0.025)
-    r5 = UViperofRegion('5', 0.025)
+    UViperofRegion('1', 0.025)
+    UViperofRegion('2', 0.025)
+    UViperofRegion('3', 0.025)
+    UViperofRegion('4', 0.025)
+    UViperofRegion('5', 0.025)
 
-    result = pd.concat([r1, r2, r3, r4, r5], ignore_index=True)
-    result.to_csv('resultOfUViper.csv', index=False, header=True)
