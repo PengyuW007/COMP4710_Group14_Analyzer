@@ -5,7 +5,7 @@
 ###  Group members
 1. Pengyu Wang, 7863401
 2. Thomas Czubryt, 7842904
-3. Hantong Li(Lucas),
+3. Hantong Li(Lucas), 7845045
 4. Yue Ma(Martin), 7824580
 5. Zhiyi Chen(Kevin)， 7863368
 

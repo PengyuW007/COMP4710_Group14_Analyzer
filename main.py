@@ -206,7 +206,7 @@ def UViperofRegion(region, MinSupp):
         else:
             a.insert(count, i)
             count += 1
-    print("the sum of A: ", a)
+    print("The sum of A: ", a)
 
     # probability of people who have died
     count = 0
@@ -218,7 +218,7 @@ def UViperofRegion(region, MinSupp):
         else:
             b.insert(count, 1 - i)
             count += 1
-    print("the sum of b: ", b)
+    print("The sum of B: ", b)
 
     # probability of people were in ICU
     count = 0
@@ -230,7 +230,7 @@ def UViperofRegion(region, MinSupp):
         else:
             c.insert(count, i)
             count += 1
-    print("the sum of c: ", c)
+    print("The sum of C: ", c)
 
     # probability of people who have symptom and died
     ab = []
@@ -244,7 +244,7 @@ def UViperofRegion(region, MinSupp):
     if (sum(ab) < MinSupp):
         ab.clear()
 
-    print("the list for ab: ", ab)
+    print("The list for AB: ", ab)
 
     # probability of people who have symptom and were in INC
     ac = []
@@ -257,7 +257,7 @@ def UViperofRegion(region, MinSupp):
     if (sum(ac) < MinSupp):
         ac.clear()
 
-    print("the list for ac: ", ac)
+    print("The list for AC: ", ac)
 
     # probability of people who were in ICU and died
     bc = []
@@ -270,7 +270,7 @@ def UViperofRegion(region, MinSupp):
     if sum(bc) < MinSupp:
         bc.clear()
 
-    print("the sum of bc: ", bc)
+    print("The sum of BC: ", bc)
 
     # probability of people who have sympton and were in ICU and died
     abc = []
@@ -284,7 +284,7 @@ def UViperofRegion(region, MinSupp):
     if sum(abc) < MinSupp:
         abc.clear()
 
-    print("the sum of abc: ", abc)
+    print("The sum of ABC: ", abc)
 
 
 # end of Lucas UViperOfRegion
@@ -360,6 +360,9 @@ if __name__ == '__main__':
     final.to_csv('collectionForUVIPER.csv', index=False, header=True)
 
     # Lucas Viper
+    print("**************************************************************************")
+    print("A= PER_ASM: Asymptomatic, B= PER_DTH: Death, C= PER_HSP: Hospital Status")
+    print("**************************************************************************")
     UViperofRegion('1', 0.025)
     UViperofRegion('2', 0.025)
     UViperofRegion('3', 0.025)
