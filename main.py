@@ -126,73 +126,168 @@ def displayPlot(regionNum, title):
     plt.show()
 
 
-
-def uViperofRegion(region,dataProb):
-    regionName = "COV_REG == "+ region
-    qData= dataProb.query(regionName)
+def uViperofRegion(region, dataProb):
+    regionName = "COV_REG == " + region
+    qData = dataProb.query(regionName)
 
     a = []
-    count=0
+    count = 0
     for i in qData['PER_ASM']:
         if math.isnan(i):
             a.insert(count, 0)
             count += 1
         else:
-            a.insert(count,i)
-            count +=1
+            a.insert(count, i)
+            count += 1
 
-
-    count=0
+    count = 0
     b = []
     for i in qData['PER_DTH']:
         if math.isnan(i):
-            b.insert(count,0)
-            count +=1
+            b.insert(count, 0)
+            count += 1
         else:
-            b.insert(count,1-i)
-            count +=1
+            b.insert(count, 1 - i)
+            count += 1
 
-
-    count=0
+    count = 0
     c = []
     for i in qData['PER_HSP']:
         if math.isnan(i):
-            c.insert(count,0)
-            count +=1
+            c.insert(count, 0)
+            count += 1
         else:
-            c.insert(count,i)
-            count +=1
-
+            c.insert(count, i)
+            count += 1
 
     ab = []
-    size=len(a)
+    size = len(a)
     for i in range(size):
-            ab.insert(i, a[i]*b[i])
-
+        ab.insert(i, a[i] * b[i])
 
     ac = []
     for i in range(size):
-
-            ac.insert(i, a[i]*c[i])
-
+        ac.insert(i, a[i] * c[i])
 
     bc = []
     for i in range(size):
-            bc.insert(i, b[i]*c[i])
-
-
+        bc.insert(i, b[i] * c[i])
 
     abc = []
     for i in range(size):
-            abc.insert(i, a[i]*b[i]*c[i])
-
-
+        abc.insert(i, a[i] * b[i] * c[i])
 
     testData = {'COV_REG': region, 'a': a, 'b': b, 'c': c, 'ab': ab, 'ac': ac, 'bc': bc, 'abc': abc}
     write = pd.DataFrame(testData)
     return write
 
-# print("COMP 4710 Group 14 Analyzer.\n")
+
+'''
+Lucas viper
+'''
+
+
+# UViperOfRegion
+# data = pd.read_csv('probability.csv')
+
+# U-VIPER for region 1-5
+def UViperofRegion(region, MinSupp):
+    regionName = "COV_REG == " + region
+    qData = data.query(regionName)
+
+    # probability of people who have symptom
+    a = []
+    count = 0
+    for i in qData['PER_ASM']:
+        if math.isnan(i):
+            a.insert(count, 0)
+            count += 1
+        else:
+            a.insert(count, i)
+            count += 1
+    print("the sum of A: ", a)
+
+    # probability of people who have died
+    count = 0
+    b = []
+    for i in qData['PER_DTH']:
+        if math.isnan(i):
+            b.insert(count, 0)
+            count += 1
+        else:
+            b.insert(count, 1 - i)
+            count += 1
+    print("the sum of b: ", b)
+
+    # probability of people were in ICU
+    count = 0
+    c = []
+    for i in qData['PER_HSP']:
+        if math.isnan(i):
+            c.insert(count, 0)
+            count += 1
+        else:
+            c.insert(count, i)
+            count += 1
+    print("the sum of c: ", c)
+
+    # probability of people who have symptom and died
+    ab = []
+    size = len(a)
+    for i in range(size):
+        if a[i] * b[i] >= MinSupp:
+            ab.insert(i, a[i] * b[i])
+        if a[i] * b[i] < MinSupp:
+            ab.insert(i, 0)
+
+    if (sum(ab) < MinSupp):
+        ab.clear()
+
+    print("the list for ab: ", ab)
+
+    # probability of people who have symptom and were in INC
+    ac = []
+    for i in range(size):
+        if a[i] * c[i] >= MinSupp:
+            ac.insert(i, a[i] * c[i])
+        if a[i] * c[i] < MinSupp:
+            ac.insert(i, 0)
+
+    if (sum(ac) < MinSupp):
+        ac.clear()
+
+    print("the list for ac: ", ac)
+
+    # probability of people who were in ICU and died
+    bc = []
+    for i in range(size):
+        if b[i] * c[i] >= MinSupp:
+            bc.insert(i, b[i] * c[i])
+        if b[i] * c[i] < MinSupp:
+            bc.insert(i, 0)
+
+    if sum(bc) < MinSupp:
+        bc.clear()
+
+    print("the sum of bc: ", bc)
+
+    # probability of people who have sympton and were in ICU and died
+    abc = []
+    if ac and ab and bc:
+        for i in range(size):
+            if a[i] * b[i] * c[i] > MinSupp:
+                abc.insert(i, a[i] * b[i] * c[i])
+            if a[i] * b[i] * c[i] < MinSupp:
+                abc.insert(i, 0)
+
+    if sum(abc) < MinSupp:
+        abc.clear()
+
+    print("the sum of abc: ", abc)
+
+
+# end of Lucas UViperOfRegion
+
 
 if __name__ == '__main__':
     print(testFile)
@@ -260,6 +355,15 @@ if __name__ == '__main__':
     w4 = uViperofRegion('4', dataset1)
     w5 = uViperofRegion('5', dataset1)
 
-
     final = pd.concat([w1, w2, w3, w4, w5], ignore_index=True)
     final.to_csv('collectionForUVIPER.csv', index=False, header=True)
+
+    # Lucas Viper
+    r1 = UViperofRegion('1', 0.025)
+    r2 = UViperofRegion('2', 0.025)
+    r3 = UViperofRegion('3', 0.025)
+    r4 = UViperofRegion('4', 0.025)
+    r5 = UViperofRegion('5', 0.025)
+
+    result = pd.concat([r1, r2, r3, r4, r5], ignore_index=True)
+    result.to_csv('resultOfUViper.csv', index=False, header=True)
