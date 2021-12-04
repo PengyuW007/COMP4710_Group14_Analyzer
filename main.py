@@ -117,7 +117,7 @@ def displayPlot(regionNum, title):
     ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
     ax.set_title(title, fontsize=15)
     ax.set_xlabel("Age Group")
-    ax.set_ylabel("Percentage of Asymptomatic")
+    ax.set_ylabel("Percentage of Symptomatic")
     ax.legend()
 
     ax.set_xticks(xticks + 0.25)
@@ -206,7 +206,7 @@ def UViperofRegion(region, MinSupp):
         else:
             a.insert(count, i)
             count += 1
-    print("The sum of A: ", a)
+    print("The list for A: ", a)
 
     # probability of people who have died
     count = 0
@@ -218,7 +218,7 @@ def UViperofRegion(region, MinSupp):
         else:
             b.insert(count, 1 - i)
             count += 1
-    print("The sum of B: ", b)
+    print("The list for B: ", b)
 
     # probability of people were in ICU
     count = 0
@@ -230,7 +230,7 @@ def UViperofRegion(region, MinSupp):
         else:
             c.insert(count, i)
             count += 1
-    print("The sum of C: ", c)
+    print("The list for C: ", c)
 
     # probability of people who have symptom and died
     ab = []
@@ -270,7 +270,7 @@ def UViperofRegion(region, MinSupp):
     if sum(bc) < MinSupp:
         bc.clear()
 
-    print("The sum of BC: ", bc)
+    print("The list for BC: ", bc)
 
     # probability of people who have sympton and were in ICU and died
     abc = []
@@ -284,7 +284,7 @@ def UViperofRegion(region, MinSupp):
     if sum(abc) < MinSupp:
         abc.clear()
 
-    print("The sum of ABC: ", abc)
+    print("The list for ABC: ", abc)
 
 
 # end of Lucas UViperOfRegion
@@ -344,11 +344,11 @@ if __name__ == '__main__':
     dataset1 = dataset.drop(columns=['Unnamed: 0'])
     dataset1.to_csv('probability.csv')
 
-    displayPlot(1, "symptomatic Distribution of Atlantic")
-    displayPlot(2, "symptomatic Distribution of Quebec")
-    displayPlot(3, "symptomatic Distribution of Ontario and Nunavut")
-    displayPlot(4, "symptomatic Distribution of Prairies and the NorthWest Territories")
-    displayPlot(5, "symptomatic Distribution of British Columbia and Yukon")
+    displayPlot(1, "Symptomatic Distribution of Atlantic")
+    displayPlot(2, "Symptomatic Distribution of Quebec")
+    displayPlot(3, "Symptomatic Distribution of Ontario and Nunavut")
+    displayPlot(4, "Symptomatic Distribution of Prairies and the NorthWest Territories")
+    displayPlot(5, "Symptomatic Distribution of British Columbia and Yukon")
 
     w1 = uViperofRegion('1', dataset1)
     w2 = uViperofRegion('2', dataset1)
