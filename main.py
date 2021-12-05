@@ -198,6 +198,147 @@ def displayPlotHSP(regionNum, title):
     ax.grid(False)
     plt.show()
 
+
+def displayPlotASM_DTH(regionNum, title):
+    testFile = pd.read_csv("probability.csv")
+    plt.style.use("ggplot")
+    AgeGroup = ["0~19", "20~29", "30~39", "40~49", "50~59", "60~69", "70~79", "80+"]
+    male = []
+    female = []
+    count = 0
+    data = np.where((testFile['COV_GDR'] == 1) & (testFile['COV_REG'] == regionNum))
+    for i in testFile.loc[data]['PER_ASM_DTH']:
+        male.insert(count, i)
+        count += 1
+
+    count = 0
+    data = np.where((testFile['COV_GDR'] == 2) & (testFile['COV_REG'] == regionNum))
+    print(testFile.loc[data])
+    for i in testFile.loc[data]['PER_ASM_DTH']:
+        female.insert(count, i)
+        count += 1
+
+    xticks = np.arange(len(AgeGroup))
+
+    fig, ax = plt.subplots(figsize=(10, 7))
+    ax.bar(xticks, male, width=0.25, label="Male", color="red")
+    ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
+    ax.set_title(title, fontsize=15)
+    ax.set_xlabel("Age Group")
+    ax.set_ylabel("Percentage of Symptomatic")
+    ax.legend()
+
+    ax.set_xticks(xticks + 0.25)
+    ax.set_xticklabels(AgeGroup)
+    ax.grid(False)
+    plt.show()
+
+
+def displayPlotASM_HSP(regionNum, title):
+    testFile = pd.read_csv("probability.csv")
+    plt.style.use("ggplot")
+    AgeGroup = ["0~19", "20~29", "30~39", "40~49", "50~59", "60~69", "70~79", "80+"]
+    male = []
+    female = []
+    count = 0
+    data = np.where((testFile['COV_GDR'] == 1) & (testFile['COV_REG'] == regionNum))
+    for i in testFile.loc[data]['PER_ASM_HSP']:
+        male.insert(count, i)
+        count += 1
+
+    count = 0
+    data = np.where((testFile['COV_GDR'] == 2) & (testFile['COV_REG'] == regionNum))
+    print(testFile.loc[data])
+    for i in testFile.loc[data]['PER_ASM_HSP']:
+        female.insert(count, i)
+        count += 1
+
+    xticks = np.arange(len(AgeGroup))
+
+    fig, ax = plt.subplots(figsize=(10, 7))
+    ax.bar(xticks, male, width=0.25, label="Male", color="red")
+    ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
+    ax.set_title(title, fontsize=15)
+    ax.set_xlabel("Age Group")
+    ax.set_ylabel("Percentage of Symptomatic")
+    ax.legend()
+
+    ax.set_xticks(xticks + 0.25)
+    ax.set_xticklabels(AgeGroup)
+    ax.grid(False)
+    plt.show()
+
+
+
+def displayPlotDTH_HSP(regionNum, title):
+    testFile = pd.read_csv("probability.csv")
+    plt.style.use("ggplot")
+    AgeGroup = ["0~19", "20~29", "30~39", "40~49", "50~59", "60~69", "70~79", "80+"]
+    male = []
+    female = []
+    count = 0
+    data = np.where((testFile['COV_GDR'] == 1) & (testFile['COV_REG'] == regionNum))
+    for i in testFile.loc[data]['PER_DTH_HSP']:
+        male.insert(count, i)
+        count += 1
+
+    count = 0
+    data = np.where((testFile['COV_GDR'] == 2) & (testFile['COV_REG'] == regionNum))
+    print(testFile.loc[data])
+    for i in testFile.loc[data]['PER_DTH_HSP']:
+        female.insert(count, i)
+        count += 1
+
+    xticks = np.arange(len(AgeGroup))
+
+    fig, ax = plt.subplots(figsize=(10, 7))
+    ax.bar(xticks, male, width=0.25, label="Male", color="red")
+    ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
+    ax.set_title(title, fontsize=15)
+    ax.set_xlabel("Age Group")
+    ax.set_ylabel("Percentage of Symptomatic")
+    ax.legend()
+
+    ax.set_xticks(xticks + 0.25)
+    ax.set_xticklabels(AgeGroup)
+    ax.grid(False)
+    plt.show()
+
+
+def displayPlotASM_DTH_HSP(regionNum, title):
+    testFile = pd.read_csv("probability.csv")
+    plt.style.use("ggplot")
+    AgeGroup = ["0~19", "20~29", "30~39", "40~49", "50~59", "60~69", "70~79", "80+"]
+    male = []
+    female = []
+    count = 0
+    data = np.where((testFile['COV_GDR'] == 1) & (testFile['COV_REG'] == regionNum))
+    for i in testFile.loc[data]['PER_ASM_DTH_HSP']:
+        male.insert(count, i)
+        count += 1
+
+    count = 0
+    data = np.where((testFile['COV_GDR'] == 2) & (testFile['COV_REG'] == regionNum))
+    print(testFile.loc[data])
+    for i in testFile.loc[data]['PER_ASM_DTH_HSP']:
+        female.insert(count, i)
+        count += 1
+
+    xticks = np.arange(len(AgeGroup))
+
+    fig, ax = plt.subplots(figsize=(10, 7))
+    ax.bar(xticks, male, width=0.25, label="Male", color="red")
+    ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
+    ax.set_title(title, fontsize=15)
+    ax.set_xlabel("Age Group")
+    ax.set_ylabel("Percentage of Symptomatic")
+    ax.legend()
+
+    ax.set_xticks(xticks + 0.25)
+    ax.set_xticklabels(AgeGroup)
+    ax.grid(False)
+    plt.show()
+
 def uViperofRegion(region, dataProb):
     regionName = "COV_REG == " + region
     qData = dataProb.query(regionName)
@@ -413,6 +554,11 @@ if __name__ == '__main__':
     dataset['PER_ASM'] = perASM
     dataset['PER_DTH'] = perDTH
     dataset['PER_HSP'] = perHSP
+    dataset['PER_ASM_DTH'] = perASM * perDTH
+    dataset['PER_ASM_HSP'] = perASM * perHSP
+    dataset['PER_DTH_HSP'] = perDTH * perHSP
+    dataset['PER_ASM_DTH_HSP'] = perASM * perDTH * perHSP
+
     dataset1 = dataset.drop(columns=['Unnamed: 0'])
     dataset1.to_csv('probability.csv')
 
@@ -432,7 +578,35 @@ if __name__ == '__main__':
     displayPlotHSP(2, "ICU Distribution of Quebec")
     displayPlotHSP(3, "ICU Distribution of Ontario and Nunavut")
     displayPlotHSP(4, "ICU Distribution of Prairies and the NorthWest Territories")
-    displayPlotHSP(5, "ICUDistribution of British Columbia and Yukon")
+    displayPlotHSP(5, "ICU Distribution of British Columbia and Yukon")
+
+    displayPlotASM_DTH(1, "ASM and DTH Distribution of Atlantic")
+    displayPlotASM_DTH(2, "ASM and DTH Distribution of Quebec")
+    displayPlotASM_DTH(3, "ASM and DTH Distribution of Ontario and Nunavut")
+    displayPlotASM_DTH(4, "ASM and DTH Distribution of Prairies and the NorthWest Territories")
+    displayPlotASM_DTH(5, "ASM and DTH Distribution of British Columbia and Yukon")
+
+
+    displayPlotASM_HSP(1, "ASM and ICU Distribution of Atlantic")
+    displayPlotASM_HSP(2, "ASM and ICU Distribution of Quebec")
+    displayPlotASM_HSP(3, "ASM and ICU Distribution of Ontario and Nunavut")
+    displayPlotASM_HSP(4, "ASM and ICU Distribution of Prairies and the NorthWest Territories")
+    displayPlotASM_HSP(5, "ASM and ICU Distribution of British Columbia and Yukon")
+
+
+    displayPlotDTH_HSP(1, "DTH and ICU Distribution of Atlantic")
+    displayPlotDTH_HSP(2, "DTH and ICU Distribution of Quebec")
+    displayPlotDTH_HSP(3, "DTH and ICU Distribution of Ontario and Nunavut")
+    displayPlotDTH_HSP(4, "DTH and ICU Distribution of Prairies and the NorthWest Territories")
+    displayPlotDTH_HSP(5, "DTH and ICU Distribution of British Columbia and Yukon")
+
+
+    displayPlotASM_DTH_HSP(1, "ASM and DTH and ICU Distribution of Atlantic")
+    displayPlotASM_DTH_HSP(2, "ASM and DTH and ICU Distribution of Quebec")
+    displayPlotASM_DTH_HSP(3, "ASM and DTH and ICU Distribution of Ontario and Nunavut")
+    displayPlotASM_DTH_HSP(4, "ASM and DTH and ICU Distribution of Prairies and the NorthWest Territories")
+    displayPlotASM_DTH_HSP(5, "ASM and DTH and ICU Distribution of British Columbia and Yukon")
+
 
 
     w1 = uViperofRegion('1', dataset1)
