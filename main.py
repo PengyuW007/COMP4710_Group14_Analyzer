@@ -91,7 +91,7 @@ def countRemovedTotal():
     print()
 
 
-def displayPlot(regionNum, title):
+def displayPlotASM(regionNum, title):
     testFile = pd.read_csv("probability.csv")
     plt.style.use("ggplot")
     AgeGroup = ["0~19", "20~29", "30~39", "40~49", "50~59", "60~69", "70~79", "80+"]
@@ -125,6 +125,42 @@ def displayPlot(regionNum, title):
     ax.grid(False)
     plt.show()
 
+
+
+
+def displayPlotDTH(regionNum, title):
+    testFile = pd.read_csv("probability.csv")
+    plt.style.use("ggplot")
+    AgeGroup = ["0~19", "20~29", "30~39", "40~49", "50~59", "60~69", "70~79", "80+"]
+    male = []
+    female = []
+    count = 0
+    data = np.where((testFile['COV_GDR'] == 1) & (testFile['COV_REG'] == regionNum))
+    for i in testFile.loc[data]['PER_DTH']:
+        male.insert(count, i)
+        count += 1
+
+    count = 0
+    data = np.where((testFile['COV_GDR'] == 2) & (testFile['COV_REG'] == regionNum))
+    print(testFile.loc[data])
+    for i in testFile.loc[data]['PER_DTH']:
+        female.insert(count, i)
+        count += 1
+
+    xticks = np.arange(len(AgeGroup))
+
+    fig, ax = plt.subplots(figsize=(10, 7))
+    ax.bar(xticks, male, width=0.25, label="Male", color="red")
+    ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
+    ax.set_title(title, fontsize=15)
+    ax.set_xlabel("Age Group")
+    ax.set_ylabel("Percentage of Symptomatic")
+    ax.legend()
+
+    ax.set_xticks(xticks + 0.25)
+    ax.set_xticklabels(AgeGroup)
+    ax.grid(False)
+    plt.show()
 
 def uViperofRegion(region, dataProb):
     regionName = "COV_REG == " + region
@@ -344,11 +380,18 @@ if __name__ == '__main__':
     dataset1 = dataset.drop(columns=['Unnamed: 0'])
     dataset1.to_csv('probability.csv')
 
-    displayPlot(1, "Symptomatic Distribution of Atlantic")
-    displayPlot(2, "Symptomatic Distribution of Quebec")
-    displayPlot(3, "Symptomatic Distribution of Ontario and Nunavut")
-    displayPlot(4, "Symptomatic Distribution of Prairies and the NorthWest Territories")
-    displayPlot(5, "Symptomatic Distribution of British Columbia and Yukon")
+    displayPlotASM(1, "Symptomatic Distribution of Atlantic")
+    displayPlotASM(2, "Symptomatic Distribution of Quebec")
+    displayPlotASM(3, "Symptomatic Distribution of Ontario and Nunavut")
+    displayPlotASM(4, "Symptomatic Distribution of Prairies and the NorthWest Territories")
+    displayPlotASM(5, "Symptomatic Distribution of British Columbia and Yukon")
+
+    displayPlotDTH(1, "Death rate Distribution of Atlantic")
+    displayPlotDTH(2, "Death rate Distribution of Quebec")
+    displayPlotDTH(3, "Death rate Distribution of Ontario and Nunavut")
+    displayPlotDTH(4, "Death rate Distribution of Prairies and the NorthWest Territories")
+    displayPlotDTH(5, "Death rate Distribution of British Columbia and Yukon")
+
 
     w1 = uViperofRegion('1', dataset1)
     w2 = uViperofRegion('2', dataset1)
