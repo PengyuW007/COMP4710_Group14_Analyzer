@@ -99,14 +99,14 @@ def displayPlot(regionNum, title):
     female = []
     count = 0
     data = np.where((testFile['COV_GDR'] == 1) & (testFile['COV_REG'] == regionNum))
-    for i in testFile.loc[data]['PER_DTH']:
+    for i in testFile.loc[data]['PER_ASM']:
         male.insert(count, i)
         count += 1
 
     count = 0
     data = np.where((testFile['COV_GDR'] == 2) & (testFile['COV_REG'] == regionNum))
     print(testFile.loc[data])
-    for i in testFile.loc[data]['PER_DTH']:
+    for i in testFile.loc[data]['PER_ASM']:
         female.insert(count, i)
         count += 1
 
@@ -147,7 +147,7 @@ def uViperofRegion(region, dataProb):
             b.insert(count, 0)
             count += 1
         else:
-            b.insert(count, 1 - i)
+            b.insert(count, i)
             count += 1
 
     count = 0
@@ -216,7 +216,7 @@ def UViperofRegion(region, MinSupp):
             b.insert(count, 0)
             count += 1
         else:
-            b.insert(count, 1 - i)
+            b.insert(count, i)
             count += 1
     print("The list for B: ", b)
 
@@ -317,7 +317,7 @@ if __name__ == '__main__':
         ['COV_GDR', 'COV_AGR', 'COV_REG', 'COV_ASM']).size().reset_index(name='NUM_ASM')
 
     # total number of case that died
-    data2 = testFile.query('COV_DTH == 2')
+    data2 = testFile.query('COV_DTH == 1')
     data22 = data2.sort_values(['COV_GDR', 'COV_AGR', 'COV_REG'], ascending=False).groupby(
         ['COV_GDR', 'COV_AGR', 'COV_REG', 'COV_DTH']).size().reset_index(name='NUM_DTH')
 
