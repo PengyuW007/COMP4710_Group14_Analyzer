@@ -117,7 +117,7 @@ def displayPlotASM(regionNum, title):
     ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
     ax.set_title(title, fontsize=15)
     ax.set_xlabel("Age Group")
-    ax.set_ylabel("Percentage of Symptomatic")
+    ax.set_ylabel("Percentage of Cases That Were Symptomatic")
     ax.legend()
 
     ax.set_xticks(xticks + 0.25)
@@ -154,7 +154,7 @@ def displayPlotDTH(regionNum, title):
     ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
     ax.set_title(title, fontsize=15)
     ax.set_xlabel("Age Group")
-    ax.set_ylabel("Percentage of Symptomatic")
+    ax.set_ylabel("Percentage of Cases That Died")
     ax.legend()
 
     ax.set_xticks(xticks + 0.25)
@@ -190,7 +190,7 @@ def displayPlotHSP(regionNum, title):
     ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
     ax.set_title(title, fontsize=15)
     ax.set_xlabel("Age Group")
-    ax.set_ylabel("Percentage of Symptomatic")
+    ax.set_ylabel("Percentage of Cases in ICU")
     ax.legend()
 
     ax.set_xticks(xticks + 0.25)
@@ -225,7 +225,7 @@ def displayPlotASM_DTH(regionNum, title):
     ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
     ax.set_title(title, fontsize=15)
     ax.set_xlabel("Age Group")
-    ax.set_ylabel("Percentage of Symptomatic")
+    ax.set_ylabel("Percentage of Cases That Were Symptomatic and Died")
     ax.legend()
 
     ax.set_xticks(xticks + 0.25)
@@ -260,7 +260,7 @@ def displayPlotASM_HSP(regionNum, title):
     ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
     ax.set_title(title, fontsize=15)
     ax.set_xlabel("Age Group")
-    ax.set_ylabel("Percentage of Symptomatic")
+    ax.set_ylabel("Percentage of Cases That Were Symptomatic and in ICU")
     ax.legend()
 
     ax.set_xticks(xticks + 0.25)
@@ -296,7 +296,7 @@ def displayPlotDTH_HSP(regionNum, title):
     ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
     ax.set_title(title, fontsize=15)
     ax.set_xlabel("Age Group")
-    ax.set_ylabel("Percentage of Symptomatic")
+    ax.set_ylabel("Percentage of Cases That Died and in ICU")
     ax.legend()
 
     ax.set_xticks(xticks + 0.25)
@@ -331,7 +331,7 @@ def displayPlotASM_DTH_HSP(regionNum, title):
     ax.bar(xticks + 0.25, female, width=0.25, label="Female", color="blue")
     ax.set_title(title, fontsize=15)
     ax.set_xlabel("Age Group")
-    ax.set_ylabel("Percentage of Symptomatic")
+    ax.set_ylabel("Percentage of Cases That Were Symptomatic, Died, and in ICU")
     ax.legend()
 
     ax.set_xticks(xticks + 0.25)
