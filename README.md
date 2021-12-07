@@ -20,15 +20,13 @@ Contributions:
 As the two bullet points of contributions I mentioned above,  if we build a map of the number of positive cases by data visualisation, for public it is good for people to know which districts of Winnipeg are easily to be affected, or which human race(nation of people) are easier to be affected, and government can announce these group of people are better to stay at home or reduce the likelihood or frequency to go to these areas. 
 
 ### Results
-There are 3 csv files of the output, 
-1. probability.csv: The official result after U-Viper algorithm
-2. collectionForUViper.csv :To get the possibility of different combinations of Asymptomatic, Death and Hospital Status
-3. final.csv 
+A. All the results' input are read from "Alternative format - Compressed Archive (ZIP)", the original link of the file as shown below:
 
+https://www150.statcan.gc.ca/n1/pub/13-26-0003/2020001/COVID19-eng.zip
 
-
-
-
-
+B. There are 3 csv files of the output, 
+1. probability.csv: The official result after U-Viper algorithm.
+2. collectionForUViper.csv :To get the possibility of different combinations of Asymptomatic, Death and Hospital Status.
+3. final.csv: Transition data of middle steps.
 
 As the two bullet points of contributions I mentioned above,  if we build a map of the number of positive cases by data visualisation, for public it is good for people to know which districts of Winnipeg are easily to be affected, or which human race(nation of people) are easier to be affected, and government can announce these group of people are better to stay at home or reduce the likelihood or frequency to go to these areas.
