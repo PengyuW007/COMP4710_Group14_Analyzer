@@ -1,7 +1,8 @@
-import pandas as pd
+# sudo install python3-pip, sudo apt update
+import pandas as pd  # pip install pandas
 import numpy as np
 import math
-import matplotlib.pyplot as plt  # install matplotlib.pyplot
+import matplotlib.pyplot as plt  # pip install matplotlib
 
 '''yue ma tests, '''
 testFile = pd.read_csv("COVID19-eng.csv")  # COVID19-eng.csv, official path repository
@@ -126,8 +127,6 @@ def displayPlotASM(regionNum, title):
     plt.show()
 
 
-
-
 def displayPlotDTH(regionNum, title):
     testFile = pd.read_csv("probability.csv")
     plt.style.use("ggplot")
@@ -161,7 +160,6 @@ def displayPlotDTH(regionNum, title):
     ax.set_xticklabels(AgeGroup)
     ax.grid(False)
     plt.show()
-
 
 
 def displayPlotHSP(regionNum, title):
@@ -269,7 +267,6 @@ def displayPlotASM_HSP(regionNum, title):
     plt.show()
 
 
-
 def displayPlotDTH_HSP(regionNum, title):
     testFile = pd.read_csv("probability.csv")
     plt.style.use("ggplot")
@@ -338,6 +335,7 @@ def displayPlotASM_DTH_HSP(regionNum, title):
     ax.set_xticklabels(AgeGroup)
     ax.grid(False)
     plt.show()
+
 
 def uViperofRegion(region, dataProb):
     regionName = "COV_REG == " + region
@@ -586,13 +584,11 @@ if __name__ == '__main__':
     displayPlotASM_DTH(4, "ASM and DTH Distribution of Prairies and the NorthWest Territories")
     displayPlotASM_DTH(5, "ASM and DTH Distribution of British Columbia and Yukon")
 
-
     displayPlotASM_HSP(1, "ASM and ICU Distribution of Atlantic")
     displayPlotASM_HSP(2, "ASM and ICU Distribution of Quebec")
     displayPlotASM_HSP(3, "ASM and ICU Distribution of Ontario and Nunavut")
     displayPlotASM_HSP(4, "ASM and ICU Distribution of Prairies and the NorthWest Territories")
     displayPlotASM_HSP(5, "ASM and ICU Distribution of British Columbia and Yukon")
-
 
     displayPlotDTH_HSP(1, "DTH and ICU Distribution of Atlantic")
     displayPlotDTH_HSP(2, "DTH and ICU Distribution of Quebec")
@@ -600,14 +596,11 @@ if __name__ == '__main__':
     displayPlotDTH_HSP(4, "DTH and ICU Distribution of Prairies and the NorthWest Territories")
     displayPlotDTH_HSP(5, "DTH and ICU Distribution of British Columbia and Yukon")
 
-
     displayPlotASM_DTH_HSP(1, "ASM and DTH and ICU Distribution of Atlantic")
     displayPlotASM_DTH_HSP(2, "ASM and DTH and ICU Distribution of Quebec")
     displayPlotASM_DTH_HSP(3, "ASM and DTH and ICU Distribution of Ontario and Nunavut")
     displayPlotASM_DTH_HSP(4, "ASM and DTH and ICU Distribution of Prairies and the NorthWest Territories")
     displayPlotASM_DTH_HSP(5, "ASM and DTH and ICU Distribution of British Columbia and Yukon")
-
-
 
     w1 = uViperofRegion('1', dataset1)
     w2 = uViperofRegion('2', dataset1)
@@ -627,4 +620,3 @@ if __name__ == '__main__':
     UViperofRegion('3', 0.025)
     UViperofRegion('4', 0.025)
     UViperofRegion('5', 0.025)
-
