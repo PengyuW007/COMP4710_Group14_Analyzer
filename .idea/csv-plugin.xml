@@ -3,7 +3,11 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+WIP--Resourse
+        <entry key="\Resource\Metadata-eng.csv">
+
         <entry key="\final.csv">
+master
           <value>
             <Attribute>
               <option name="separator" value="," />
