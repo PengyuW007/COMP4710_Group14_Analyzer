@@ -1,5 +1,12 @@
 # COMP4710_Group14_Analyzer
 
+###  Group members
+1. Pengyu Wang, 7863401
+2. Thomas Czubryt, 7842904
+3. Hantong Li(Lucas), 7845045
+4. Yue Ma(Martin), 7824580
+5. Zhiyi Chen(Kevin)， 7863368
+
 ###  Repository 
 https://github.com/Skadoosh777/COMP4710_Group14_Analyzer/tree/master (private)
 
@@ -10,18 +17,16 @@ This link includes:
 1. video of presentation
 2. Slides of presentation
 
-###  Group members
-1. Pengyu Wang, 7863401
-2. Thomas Czubryt, 7842904
-3. Hantong Li(Lucas), 7845045
-4. Yue Ma(Martin), 7824580
-5. Zhiyi Chen(Kevin)， 7863368
+### Documents on Google Doc( Not Official)
+1. Paper: https://docs.google.com/document/d/1EcZB4uHrxLLwU7_IewTxxosGws1m3m9pS3ZiOwiCcgY/edit?usp=sharing
+2. Meeting Notes: https://docs.google.com/document/d/1eE0cZnfV1HN_pzAGH-NBKr6rAza0QzS-QoB-pqz-TzU/edit?usp=sharing
+3. Mind pattern: https://docs.google.com/document/d/174AG0WoritHWgcOhJKUggi1x2X45suu2MmwSJMKS3y0/edit?usp=sharing
 
 ###    Purpose
 We are going to use our algorithm and findings in our paper to contribute to the public and make the data to be visualisation to people.
 
 Contributions: 
-1. To make the public to know the situation and how's everything of covid going by government, such as the tested cases, positive cases and so on). 
+1. To make the public to know the situation and how's everything of covid going by government, such as the tested cases, positive cases and so on. 
 
 2. To show the tendency of Covid-19 , how it will go in the future. Distribution of people like ages, gender and region groups.
 
