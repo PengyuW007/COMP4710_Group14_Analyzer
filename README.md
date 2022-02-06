@@ -8,19 +8,19 @@
 5. Zhiyi Chen(Kevin)， 7863368
 
 ###  Repository 
-https://github.com/Skadoosh777/COMP4710_Group14_Analyzer/tree/master (private)
+[COMP4710_Group14_Analyzer](https://github.com/Skadoosh777/COMP4710_Group14_Analyzer/tree/master) 
 
 ### Presentation
-https://umanitoba-my.sharepoint.com/:f:/g/personal/czubrytt_myumanitoba_ca/Ev8hN6ZgAF1DkZIrZ6QnBlIB35Zl1jXf5IjSSNEMSH3NDQ?e=KhYFYB
+[Presentation](https://umanitoba-my.sharepoint.com/:f:/g/personal/czubrytt_myumanitoba_ca/Ev8hN6ZgAF1DkZIrZ6QnBlIB35Zl1jXf5IjSSNEMSH3NDQ?e=KhYFYB)
 
 This link includes:
 1. video of presentation
 2. Slides of presentation
 
 ### Documents on Google Doc( Not Official)
-1. Paper: https://docs.google.com/document/d/1EcZB4uHrxLLwU7_IewTxxosGws1m3m9pS3ZiOwiCcgY/edit?usp=sharing
-2. Meeting Notes: https://docs.google.com/document/d/1eE0cZnfV1HN_pzAGH-NBKr6rAza0QzS-QoB-pqz-TzU/edit?usp=sharing
-3. Mind pattern: https://docs.google.com/document/d/174AG0WoritHWgcOhJKUggi1x2X45suu2MmwSJMKS3y0/edit?usp=sharing
+1. [Paper](https://docs.google.com/document/d/1EcZB4uHrxLLwU7_IewTxxosGws1m3m9pS3ZiOwiCcgY/edit?usp=sharing) 
+2. [Meeting Notes](https://docs.google.com/document/d/1eE0cZnfV1HN_pzAGH-NBKr6rAza0QzS-QoB-pqz-TzU/edit?usp=sharing)
+3. [Mind pattern](https://docs.google.com/document/d/174AG0WoritHWgcOhJKUggi1x2X45suu2MmwSJMKS3y0/edit?usp=sharing)
 
 ###    Purpose
 We are going to use our algorithm and findings in our paper to contribute to the public and make the data to be visualisation to people.
