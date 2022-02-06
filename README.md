@@ -10,9 +10,7 @@
 ###  Repository 
 [COMP4710_Group14_Analyzer](https://github.com/Skadoosh777/COMP4710_Group14_Analyzer/tree/master) 
 
-### Presentation
-[Presentation](https://umanitoba-my.sharepoint.com/:f:/g/personal/czubrytt_myumanitoba_ca/Ev8hN6ZgAF1DkZIrZ6QnBlIB35Zl1jXf5IjSSNEMSH3NDQ?e=KhYFYB)
-
+### [Presentation](https://umanitoba-my.sharepoint.com/:f:/g/personal/czubrytt_myumanitoba_ca/Ev8hN6ZgAF1DkZIrZ6QnBlIB35Zl1jXf5IjSSNEMSH3NDQ?e=KhYFYB)
 This link includes:
 1. video of presentation
 2. Slides of presentation
