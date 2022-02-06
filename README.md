@@ -1,11 +1,11 @@
 # COMP4710_Group14_Analyzer
 
 ###  Group members
-1. Pengyu Wang, 7863401
-2. Thomas Czubryt, 7842904
-3. Hantong Li(Lucas), 7845045
-4. Yue Ma(Martin), 7824580
-5. Zhiyi Chen(Kevin)， 7863368
+1. [Pengyu Wang](https://github.com/Skadoosh777), 7863401
+2. [Thomas Czubryt](https://github.com/CZUBRYTT), 7842904
+3. [Hantong Li( Lucas )](https://github.com/Lucasbeast), 7845045
+4. [Yue Ma( Martin )](https://github.com/mayue1998), 7824580
+5. [Zhiyi Chen( Kevin )](https://github.com/Zhiyi233), 7863368
 
 ###  Repository 
 [COMP4710_Group14_Analyzer](https://github.com/Skadoosh777/COMP4710_Group14_Analyzer/tree/master) 
