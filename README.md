@@ -16,7 +16,7 @@ This link includes:
 2. Slides of presentation
 
 ### Documents
-1. [Paper](Big Data Analysis and Data Visualization on COVID-19.pdf) 
+1. [Paper](https://github.com/PengyuW007/COMP4710_Group14_Analyzer/blob/master/Big%20Data%20Analysis%20and%20Data%20Visualization%20on%20COVID-19.pdf) 
 2. [Meeting Notes](https://docs.google.com/document/d/1eE0cZnfV1HN_pzAGH-NBKr6rAza0QzS-QoB-pqz-TzU/edit?usp=sharing)
 3. [Mind pattern](https://docs.google.com/document/d/174AG0WoritHWgcOhJKUggi1x2X45suu2MmwSJMKS3y0/edit?usp=sharing)
 
